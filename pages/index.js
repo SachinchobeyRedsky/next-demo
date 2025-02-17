@@ -26,7 +26,7 @@ export default function Home() {
 
      <div style={{display:'flex', alignItems:"center",justifyContent:"center"}}>
       <h1>Hello India!</h1>
-      <p>{JSON.stringify(data[0])}</p>
+      <p>{JSON.stringify(data)}</p>
      </div>
     </div>
   )
