@@ -1,8 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { useEffect, useState } from 'react'
+
 
 export default function Home() {
+  const [data, setData] = useState() 
+  useEffect(()=>{
+  
+    const test = fetch('https://jsonplaceholder.typicode.com/photos')
+    .then(response => response.json())
+    .then(json =>setData(json))
+    .catch((err)=>{
+      console.log("Error in api ", err)
+    })
+  },[])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +26,7 @@ export default function Home() {
 
      <div style={{display:'flex', alignItems:"center",justifyContent:"center"}}>
       <h1>Hello India!</h1>
+      <p>{JSON.stringify(data[0])}</p>
      </div>
     </div>
   )
